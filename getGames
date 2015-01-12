@@ -30,6 +30,7 @@ use IO::Handle;
 use Getopt::Long;
 use LWP::Simple qw(get);
 use JSON        qw(from_json);
+use Data::Dumper;
 
 binmode(STDOUT, ":utf8");
 
@@ -171,6 +172,10 @@ if($clear)
     $stmt = $db->prepare($query);
     $stmt->execute();
 }
+
+my $url     = "http://store.steampowered.com/api/appdetails/?appids=313360";
+my $decoded = from_json(get($url));
+print Dumper($decoded);
 
 
 printf("Elapsed time: ".Time::HiRes::tv_interval($start)."seconds\n");
