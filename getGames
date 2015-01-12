@@ -175,7 +175,7 @@ if($clear)
 
 my $url     = "http://store.steampowered.com/api/appdetails/?appids=313360";
 my $decoded = from_json(get($url));
-print Dumper($decoded);
+
 
 
 printf("Elapsed time: ".Time::HiRes::tv_interval($start)."seconds\n");
